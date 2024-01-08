@@ -33,6 +33,7 @@
 
           const geocoder = new kakao.maps.services.Geocoder();
           geocoder.addressSearch(data.roadAddress, (result, status) => {
+            test = result
           if (status === kakao.maps.services.Status.OK) {
             test = "테스트다"
             lat = result[0].y
