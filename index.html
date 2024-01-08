@@ -8,7 +8,6 @@
   <div id = "layer" style = "display:block; position:absolute; overflow:hidden; z-index:1; -webkit-overflow-scrolling:touch; ">
   </div>
   <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=763b02e8c0856fc7e8d378ca4a4f614a&libraries=services" type="text/javascript"></script>
   <script>
     window.addEventListener("message", onReceivedPostMessage, false);
 
@@ -21,30 +20,17 @@
       new daum.Postcode({
         oncomplete: function(data) {
           var jibunAddress = ""
-          var lat = ""
-          var lng = ""
-          
+
           if (data.jibunAddress == "") {
             jibunAddress = data.autoJibunAddress
           } else if (data.autoJibunAddress == "") {
             jibunAddress = data.jibunAddress
           }
 
-          // const geocoder = new kakao.maps.services.Geocoder();
-          // geocoder.addressSearch(data.roadAddress, (result, status) => {
-          // if (status === kakao.maps.services.Status.OK) {
-          //   lat = result[0].y
-          //   lng = result[0].x
-          //   console.log('위도 : ' + result[0].y);
-          //   console.log('경도 : ' + result[0].x);
-          // }
-          // });
           var postData = {
               roadAddress : data.roadAddress,
               jibunAddress : jibunAddress,
-              zonecode : data.zonecode,
-              lat : lat,
-              lng : lng
+              zonecode : data.zonecode
           };
           window.postMessageToiOS(postData);
         },
