@@ -23,7 +23,6 @@
           var jibunAddress = ""
           var lat = ""
           var lng = ""
-          var noData = ""
           
           if (data.jibunAddress == "") {
             jibunAddress = data.autoJibunAddress
@@ -45,8 +44,7 @@
               jibunAddress : jibunAddress,
               zonecode : data.zonecode,
               lat : lat,
-              lng : lng,
-              noData : noData
+              lng : lng
           };
           window.postMessageToiOS(postData);
         },
