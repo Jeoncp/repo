@@ -31,15 +31,15 @@
             jibunAddress = data.jibunAddress
           }
 
-          const geocoder = new kakao.maps.services.Geocoder();
-          geocoder.addressSearch(data.roadAddress, (result, status) => {
-          if (status === kakao.maps.services.Status.OK) {
-            lat = result[0].y
-            lng = result[0].x
-            console.log('위도 : ' + result[0].y);
-            console.log('경도 : ' + result[0].x);
-          }
-          });
+          // const geocoder = new kakao.maps.services.Geocoder();
+          // geocoder.addressSearch(data.roadAddress, (result, status) => {
+          // if (status === kakao.maps.services.Status.OK) {
+          //   lat = result[0].y
+          //   lng = result[0].x
+          //   console.log('위도 : ' + result[0].y);
+          //   console.log('경도 : ' + result[0].x);
+          // }
+          // });
           var postData = {
               roadAddress : data.roadAddress,
               jibunAddress : jibunAddress,
