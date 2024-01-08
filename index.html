@@ -23,6 +23,7 @@
           var jibunAddress = ""
           var lat = ""
           var lng = ""
+          var test = ""
           
           if (data.jibunAddress == "") {
             jibunAddress = data.autoJibunAddress
@@ -33,6 +34,7 @@
           const geocoder = new kakao.maps.services.Geocoder();
           geocoder.addressSearch(data.roadAddress, (result, status) => {
           if (status === kakao.maps.services.Status.OK) {
+            test = "테스트다"
             lat = result[0].y
             lng = result[0].x
             console.log('위도 : ' + result[0].y);
@@ -44,7 +46,8 @@
               jibunAddress : jibunAddress,
               zonecode : data.zonecode,
               lat : lat,
-              lng : lng
+              lng : lng,
+              test : test
           };
           window.postMessageToiOS(postData);
         },
